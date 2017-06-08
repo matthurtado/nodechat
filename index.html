@@ -71,6 +71,7 @@
                 }
                 else if(message.startsWith('/pm')){
                     socket.emit('privateMessage', message);
+                    $('#messages').append('<li style="background: #88d8be"><b>'+message+'</b></li>')
                 }
                 else if(message.startsWith('/help')){
                     socket.emit('helpMessage');

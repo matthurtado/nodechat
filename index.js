@@ -55,7 +55,7 @@ io.on('connection', function(socket){
 
     socket.on('privateMessage', function(msg){
         var username = msg.split(" ")[1].trim();
-        var message = msg.split(" ")[2];
+        var message = msg.split(" ").slice(2).join(" ");
         var fromUsername = users[findIndex(socket.client.id)].username;
         console.log(username);
         if(findUsername(username) >= 0){
@@ -72,7 +72,7 @@ io.on('connection', function(socket){
         socket.emit('helpMessage', message)
     });
 });
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || 3000;
 http.listen(port, function(){
   console.log('listening on *:3000');
 });
