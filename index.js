@@ -72,8 +72,8 @@ io.on('connection', function(socket){
         socket.emit('helpMessage', message)
     });
 });
-
-http.listen(3000, function(){
+var port = process.env.PORT || 8080;
+http.listen(port, function(){
   console.log('listening on *:3000');
 });
 
